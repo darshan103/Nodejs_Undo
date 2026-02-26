@@ -1,9 +1,12 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import {jwtAuth} from "./src/middleware/jwtAuth.js"
+import {jwtAuth} from "./src/middleware/jwtAuth.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
+
 async function startServer(){
     try{
         app.post("/login", (req, res)=>{
@@ -14,7 +17,7 @@ async function startServer(){
                 return res.json({token});
             }
             res.status(401).send("Invalid");
-        })
+        });
 
         app.get("/profile", jwtAuth, (req, res) => {
             res.send("Welcome user");
@@ -27,5 +30,4 @@ async function startServer(){
         console.log(error);
     }
 }
-
 startServer();
