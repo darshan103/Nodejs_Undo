@@ -1,9 +1,13 @@
 import express from 'express';
 import connectDB from './src/config/db.js';
 import User from './src/models/User.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
+
 
 const db = connectDB()
     .then(()=>{
