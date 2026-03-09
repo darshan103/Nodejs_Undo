@@ -1,18 +1,18 @@
 import express from 'express';
-import {connectToDB} from './src/config/db.js';
+// import { connectToDB } from './src/config/db.js';
+import connectDB from './src/config/db.js';
 
 const app = express();
 
 async function startServer(){
     try{
-        console.log("Starting server...");
-        const db = await connectToDB();
+        const db = await connectDB();
         console.log("Starting server...");
 
-        app.get("/", async (req, res) => {
-            const users = await db.collection("User").find().toArray();
-            res.json(users);
-        });
+        // app.get("/", async (req, res) => {
+        //     const users = await db.collection("User").find().toArray();
+        //     res.json(users);
+        // });
 
         app.listen(5000, (req, res) => {
             console.log("SERVER running on PORT 5000");
