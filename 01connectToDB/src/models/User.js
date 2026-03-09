@@ -1,17 +1,17 @@
 import mongoose from 'mongoose';
 
-const userSchema = mongoose.schema({
+const userSchema = new mongoose.Schema({
     firstName: { 
-        type: string 
+        type: String 
     },
     lastName: { 
-        type: string 
+        type: String 
     },
     age: { 
-        type: number 
+        type: Number 
     },
     password:{
-        type: string
+        type: String
     }
 });
 const User = mongoose.model("User", userSchema);

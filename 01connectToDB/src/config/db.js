@@ -1,30 +1,8 @@
-// ------------------Connection using MongoClient-------------------
-// import { MongoClient } from 'mongodb';
-
-// const url = "mongodb+srv://singhdarshan2166_db_user:DarshanDB123@cluster0.gxbjxbi.mongodb.net/?appName=Cluster0";
-// const client = new MongoClient(url);
-// const dbname = "nodejsDB"
-
-// export async function connectToDB(){
-//     try{
-//         console.log("DB connected successfully to SERVER Before");
-//         await client.connect();
-//         console.log("DB connected successfully to SERVER After");
-
-//         // const db = client.db(dbname);
-//         // return db;
-
-//         return client.db(dbname);
-//     }catch(error){
-//         console.log(error);
-//     }
-// }
-
 // --------------------Connection using mongoose---------------------
 import mongoose from 'mongoose';
 const connectDB =async() =>{
     try{
-        const db = await mongoose.connect("mongodb+srv://singhdarshan2166_db_user:DarshanDB123@cluster0.gxbjxbi.mongodb.net/UndoNodejs");
+        const db = await mongoose.connect("mongodb+srv://singhdarshan2166_db_user:DarshanDB123@cluster0.gxbjxbi.mongodb.net/walnut");
         console.log("MongoDB Connected:", db.connection.host);
         // return db;
     }catch(error){
